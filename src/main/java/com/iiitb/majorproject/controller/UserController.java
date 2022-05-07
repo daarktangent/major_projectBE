@@ -27,6 +27,11 @@ public class UserController {
         return userService.registerNewUser(user);
 
     }
+    @PostMapping({"/registerNewTA"})
+    public User registerNewTA(@RequestBody User user){
+        return userService.registerNewTA(user);
+
+    }
 
     @GetMapping({"/forAdmin"})
     @PreAuthorize("hasRole('Admin')")
@@ -38,5 +43,12 @@ public class UserController {
     @PreAuthorize("hasRole('User')")
     public String forUser(){
         return "This URL is only accessible to the user";
+    }
+
+    @GetMapping({"/forTA"})
+    @PreAuthorize("hasRole('TA')")
+    public String forTA(){
+        System.out.println("adas");
+        return "This URL is only accessible to TA";
     }
 }
