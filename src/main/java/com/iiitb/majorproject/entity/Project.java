@@ -13,11 +13,11 @@ public class Project {
     private Long uid;
     private String name;
 
-    private Long ta;
+    private String ta;
 
     private Boolean approved;
 
-    public Project(Long pid, Long uid, String name, Long ta, Boolean approved) {
+    public Project(Long pid, Long uid, String name, String ta, Boolean approved) {
         this.pid = pid;
         this.uid = uid;
         this.name = name;
@@ -64,11 +64,11 @@ public class Project {
         this.name = name;
     }
 
-    public Long getTa() {
+    public String getTa() {
         return ta;
     }
 
-    public void setTa(Long ta) {
+    public void setTa(String ta) {
         this.ta = ta;
     }
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class ProjectService {
@@ -25,6 +26,11 @@ public class ProjectService {
 
 
     public Project save(Project project) {
+        List<String> listOfTa=userDao.getAllTa();
+        Random rand = new Random();
+        String temp=listOfTa.get(rand.nextInt(listOfTa.size()));
+        System.out.println(temp);
+        project.setTa(temp);
         projectDao.save(project);
         return project;
     }
