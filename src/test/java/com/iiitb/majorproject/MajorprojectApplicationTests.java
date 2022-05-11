@@ -72,31 +72,6 @@ class MajorprojectApplicationTests extends AbstractTest{
     }
 
 
-
-
-    @Test
-    @Order(3)
-    void  addProjectTest() throws Exception
-    {
-        String user = "{\"username\":\"test\",\"password\":\"test\",\"email\":\"test@manager.org\",\"phone\":\"7894561230\",\"name\":\"test\",\"businessTitle\":\"manager\"}";
-        String  uri = "/project/add";
-        MvcResult mvcResult = this.mvc.perform(MockMvcRequestBuilders.post(uri)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(user)
-                .accept(MediaType.APPLICATION_JSON)).andReturn();
-        int status = mvcResult.getResponse().getStatus();
-
-        String content = mvcResult.getResponse().getContentAsString();
-        try {
-
-            assertEquals( 200, status);
-            System.out.println(" Success");
-        }catch(Exception e) {
-            System.out.println(" Fail");
-        }
-
-    }
-
 }
 
 
