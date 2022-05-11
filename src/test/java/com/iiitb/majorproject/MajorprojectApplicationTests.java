@@ -70,24 +70,26 @@ class MajorprojectApplicationTests extends AbstractTest{
 //        List<User> userList = super.mapFromJson(content, List.class);
 
     }
-//    @Test
-//    @Order(3)
-//    void TaTest() throws Exception
-//    {
-//        String  uri = "/forTA";
-//        MvcResult mvcResult = this.mvc.perform(MockMvcRequestBuilders.get(uri)
-//                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
-//        int status = mvcResult.getResponse().getStatus();
-//        try {
-//            assertEquals( 200, status);
-//            System.out.println("Success");
-//        }catch(Exception e) {
-//            System.out.println("Fail");
-//        }
-//        String  content = mvcResult.getResponse().getContentAsString();
-////        List<User> userList = super.mapFromJson(content, List.class);
-//
-//    }
+    @Test
+    @Order(3)
+    void  registerUserAndDeleteUserTest() throws Exception
+    {
+        String user = "{\"pid\":\"12\",\"uid\":\"test\",\"name\":\"ta\",\"approved\":\"true\",\"description\":\"test\",\"projectLink\":\"manager\"}";
+        String  uri = "/project/add";
+        MvcResult mvcResult = this.mvc.perform(MockMvcRequestBuilders.post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(user)
+                .accept(MediaType.APPLICATION_JSON)).andReturn();
+        int status = mvcResult.getResponse().getStatus();
+
+        String content = mvcResult.getResponse().getContentAsString();
+        try {
+            assertEquals( 200, status);
+            System.out.println("Register User : Success");
+        }catch(Exception e) {
+            System.out.println("Register User : Fail");
+        }
+    }
 }
 
 
