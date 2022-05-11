@@ -88,6 +88,7 @@ class MajorprojectApplicationTests extends AbstractTest{
 
         String content = mvcResult.getResponse().getContentAsString();
         try {
+
             assertEquals( 200, status);
             System.out.println(" Success");
         }catch(Exception e) {
