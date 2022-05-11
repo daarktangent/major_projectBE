@@ -72,7 +72,7 @@ class MajorprojectApplicationTests extends AbstractTest{
     }
     @Test
     @Order(3)
-    void  registerUserAndDeleteUserTest() throws Exception
+    void  addProjectTest() throws Exception
     {
         String user = "{\"pid\":\"12\",\"uid\":\"test\",\"name\":\"ta\",\"approved\":\"true\",\"description\":\"test\",\"projectLink\":\"manager\"}";
         String  uri = "/project/add";
