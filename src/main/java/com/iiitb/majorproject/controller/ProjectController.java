@@ -3,6 +3,8 @@ package com.iiitb.majorproject.controller;
 
 import com.iiitb.majorproject.entity.Project;
 import com.iiitb.majorproject.service.ProjectService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +14,14 @@ import java.util.Optional;
 
 @RestController
 public class ProjectController {
+    private static final Logger logger= LogManager.getLogger(RoleController.class);
+
     @Autowired
     private ProjectService projectService;
     @GetMapping("/project")
     public List<Project> test()
     {
+        logger.info("reached all project controller");
         return projectService.getAAllProject();
     }
     @PostMapping("/project/add")
