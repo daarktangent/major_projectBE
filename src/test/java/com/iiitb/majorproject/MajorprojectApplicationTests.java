@@ -70,26 +70,6 @@ class MajorprojectApplicationTests extends AbstractTest{
 //        List<User> userList = super.mapFromJson(content, List.class);
 
     }
-    @Test
-    @Order(3)
-    void  addProjectTest() throws Exception
-    {
-        String user = "{\"pid\":\"12\",\"uid\":\"test\",\"name\":\"ta\",\"approved\":\"true\",\"description\":\"test\",\"projectLink\":\"manager\"}";
-        String  uri = "/project/add";
-        MvcResult mvcResult = this.mvc.perform(MockMvcRequestBuilders.post(uri)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(user)
-                .accept(MediaType.APPLICATION_JSON)).andReturn();
-        int status = mvcResult.getResponse().getStatus();
-
-        String content = mvcResult.getResponse().getContentAsString();
-        try {
-            assertEquals( 200, status);
-            System.out.println("Register User : Success");
-        }catch(Exception e) {
-            System.out.println("Register User : Fail");
-        }
-    }
 }
 
 
