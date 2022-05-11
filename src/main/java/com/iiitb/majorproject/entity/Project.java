@@ -10,21 +10,26 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long pid;
-    private Long uid;
+    private String uid;
     private String name;
 
     private String ta;
 
-    private Boolean approved;
+    private Boolean approved=null;
 
-    public Project(Long pid, Long uid, String name, String ta, Boolean approved) {
+    private String description;
+
+    private String projectLink;
+
+    public Project(Long pid, String uid, String name, String ta, Boolean approved, String description, String projectLink) {
         this.pid = pid;
         this.uid = uid;
         this.name = name;
         this.ta = ta;
         this.approved = approved;
+        this.description = description;
+        this.projectLink = projectLink;
     }
-
 
     public Project() {
     }
@@ -35,8 +40,10 @@ public class Project {
                 "pid=" + pid +
                 ", uid=" + uid +
                 ", name='" + name + '\'' +
-                ", ta=" + ta +
+                ", ta='" + ta + '\'' +
                 ", approved=" + approved +
+                ", description='" + description + '\'' +
+                ", projectLink='" + projectLink + '\'' +
                 '}';
     }
 
@@ -48,11 +55,11 @@ public class Project {
         this.pid = pid;
     }
 
-    public Long getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(Long uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
@@ -78,5 +85,21 @@ public class Project {
 
     public void setApproved(Boolean approved) {
         this.approved = approved;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getProjectLink() {
+        return projectLink;
+    }
+
+    public void setProjectLink(String projectLink) {
+        this.projectLink = projectLink;
     }
 }

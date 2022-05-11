@@ -5,6 +5,7 @@ import com.iiitb.majorproject.dao.ProjectDao;
 import com.iiitb.majorproject.dao.UserDao;
 import com.iiitb.majorproject.entity.Project;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class ProjectService {
         projectDao.save(project);
         return project;
     }
+    public Project saveUpdate(Project project)
+    {
+         return projectDao.save(project);
+    }
 
     public void delete(Long id)
     {
@@ -42,5 +47,15 @@ public class ProjectService {
     public Optional<Project> getProjectById(Long id)
     {
         return projectDao.findById(id);
+    }
+
+    public List<Project> getAllProjectBelongingToaTa(String userName)
+    {
+        return projectDao.findAllByTa(userName);
+    }
+
+    public Project getProjectByUserName(String name)
+    {
+        return projectDao.findByName(name);
     }
 }
